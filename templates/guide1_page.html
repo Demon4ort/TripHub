@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TripHub</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap-4.0.0.css' %}" rel="stylesheet">
+
+  </head>
+  <body class="bg text-info" style="background-color: #A0F4F4">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+      <div class="container">
+		  <img class="mr-3" src="{% static 'images/logo.jpg' %}" style="height: 100px">
+        <h1 class="navbar-brand" href="#">TripHub</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
+				<div class="dropdown-divider"></div> 
+                <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
+              </div>
+            </li>
+         </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+	 <div class="col-lg-12"> <br/>
+		   <br/>
+		   <br/>
+		   <hr>
+		    <h2 class="text-center"><span class="badge-lg badge-info badge-pill">How to camp</span></h2>
+		   <hr>
+	  </div>
+	  <div class="container justify-content-center">
+	  <img class="d-block img-fluid" src="{% static 'images/guide1.jpg' %}">
+		  <br/>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					
+Camping is a recreational activity and there is no competition. You just need to learn to enjoy yourself and the nature that surrounds you.<br> 
+
+<h3 class="text-center">Camping Training: What are the Basics?</h3>
+<ul>
+	<li>Always bring appropriate clothing for unexpected weather conditions</li>
+	<li>It is good to have a shelter that is resilient to rain, snow, or excessive sunlight. </li>
+	<li>Camping can be a tiring activity and you don’t want to be exhausted or dehydrated, so try to have plenty of calories and water.</li>
+	<li>Dress for utility, not to impress.</li>
+</ul>
+
+
+
+
+<h3 class="text-center">Before You Go: Stuff You Need to Know</h3>
+<ul>
+	<li>Health benefits of regular camping are countless. Camping reduces stress, decreases depression and anxiety, lowers blood pressure, improves digestion and boosts the immune system through fresh and clean air.</li>
+	<li>You can go camping by yourself but it is much more fun with your family, friends or colleagues.</li>
+</ul>
+<h3 class="text-center">Camping Equipment List: What Equipment is Needed for Camping?</h3>
+
+				</div>
+			</div>
+	  	</div>
+ <div class="col"><img src="{% static 'images/guide1.2.jpg' %}" class="d-block img-fluid"></div>
+		  <br/>
+	<div class="container">
+		<div class="row ">
+		<div class="col">
+		 <h3 class="text-center">Camping Bag</h3> 
+Camping bag is one of the most important pieces of equipment during your camping trip. It needs to be durable, waterproof and lightweight. 
+
+<h3 class="text-center">Sleeping Bag</h3>
+A good sleeping bag will help you to have a warm and comfortable sleep since nights are usually much colder in nature. 
+
+<h3 class="text-center">Flashlight</h3>
+The flashlight is a must-have item on your camping trip and it is good to have one for each member of your camping party.
+
+<h3 class="text-center">Wet Wipes</h3>
+Probably there will be no shower or even running water in sight during your camping trip so it is good to have a couple of boxes of wet wipes for hygiene purposes.    
+
+<h3 class="text-center">Tent</h3>
+You are going to need a tent for shelter in the nature. You need to have a sturdy tent that can withhold in varied weather conditions. 
+
+<h3 class="text-center">Camping Chair</h3>
+The camping chair is the essential relaxation item for camping. Eating, sitting, or just enjoying the campfire on a camping chair is much more convenient and comfortable than sitting on the ground. 
+
+<h3 class="text-center">Camp Stove</h3>
+A camp stove is a reliable and faster way to cook food when the weather is too wet/ moist to make a campfire.
+
+<h3 class="text-center">Trash Bags</h3>
+Being a good camper requires a well-adjusted sense of nature conservation. It is good to bring a couple of trash bags with you leave the campsite  clean.
+
+<h3 class="text-center">First Aid Kit</h3>
+A first aid kit is something smart to have in your camping trip. You can include painkillers, antibiotic cream, bandages, gauze, and mosquito sprays in your first aid kit.  If you are planning to travel with your equipment, there might be additional costs. You can click here to check the extra services price table. 
+		  </div>
+	  </div>
+	  </div>
+	  
+	  
+	  
+	  
+	  </div>
+	 
+		<div class="col-lg-12"> <br/>
+		   <br/>
+		   <br/>
+		   <br/>
+		   <br/></div>
+      <div class="container-fluid text-white bg-info">
+          <div class="col-lg-12">
+          <address>
+            <strong>Mohila products, inc.</strong><br>
+            Ukraine 2021 <br>
+            Develoved by: <span class="badge badge-pill" style="background-color: #A0F4F4">Yehor Podolskyi</span> <span class="badge badge-pill" style="background-color: #A0F4F4"> Pavlo Vilkhoviy</span> <span class="badge badge-pill" style="background-color: #A0F4F4">Daniel Demchina</span><br>
+			  Designed by:<span class="badge badge-pill" style="background-color: #A0F4F4"> Yehor Podolskyi</span>
+          </address>
+          <address>
+            <strong>Contact us:</strong><br>
+            <a href="mailto:yehor.podolsky@gmail.com">yehor.podolsky@gmail.com</a>
+          </address>
+        </div>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright © TripHub. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.0.0.js' %}"></script>
+  </body>
+</html>

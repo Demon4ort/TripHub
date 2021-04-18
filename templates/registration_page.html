@@ -12,7 +12,7 @@
   <body class="bg text-info" style="background-color: #A0F4F4">
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
       <div class="container">
-		  <img class="mr-3" src="images/logo.jpg" style="height: 100px">
+		  <img class="mr-3" src="{% static 'images/logo.jpg' %}" style="height: 100px">
         <h1 class="navbar-brand" href="#">TripHub</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -26,9 +26,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="guides_page.html">Guides</a>
+                <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
 				<div class="dropdown-divider"></div> 
-                <a class="dropdown-item" href="trips_page.html">Trips</a>
+                <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
               </div>
             </li>
          </ul>
@@ -79,17 +79,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ form.password.errors }}
-                    <label for="{{ form.password.id_for_label }}" class="col-sm-3 control-label">Password</label>
+                    {{ form.password1.errors }}
+                    <label for="{{ form.password1.id_for_label }}" class="col-sm-3 control-label">Password</label>
                     <div class="col">
-                        {{ form.password }}
+                        {{ form.password1 }}
                     </div>
                 </div>
                 <div class="form-group">
-                    {{ form.c_password.errors }}
-                    <label for="{{ form.c_password.id_for_label }}" class="col control-label">Confirm Password*</label>
+                    {{ form.password2.errors }}
+                    <label for="{{ form.password2.id_for_label }}" class="col control-label">Confirm Password*</label>
                     <div class="col">
-                        {{ form.c_password }}
+                        {{ form.password2 }}
                     </div>
                 </div>
                 <div class="form-group">
@@ -113,7 +113,8 @@
                     <div class="col">
                         {{ form.gender }}
                     </div>
-                </div> <!-- /.form-group -->
+                </div>
+                <!-- /.form-group -->
                 <div class="form-group">
                     <div class="col">
                         <span class="help-block">ALL fields are required</span>
@@ -157,9 +158,9 @@
       </div>
     </footer>
     </div>
-	<script src="js/validation_registration.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.0.0.js"></script>
+	<script src="{% static 'js/validation_registration.js' %}"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.0.0.js' %}"></script>
   </body>
 </html>

@@ -27,14 +27,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="guides_page.html">Guides</a>
+                            <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
                         </div>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="login_page.html" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+                    <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
                 </form>
             </div>
         </div>
@@ -60,7 +60,7 @@
                 <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ trip.author.username }}</span></h5>
                 <p class="card-text">{{ trip.description }}
                 </p>
-                <a href="{% url 'current_trip' %}" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
+                <a href="#" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
             </div>
 
         </div>

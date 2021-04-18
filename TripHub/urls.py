@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views as home_view
 from users import views as users_view
+from django.contrib.auth import views as auth_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('trips/', include('trips.urls')),
-    path('guides_page/', home_view.guide, name='guides'),
+    path('guides/', home_view.guide, name='guides'),
+    path('guides/1', home_view.guide_1, name='guide1'),
+    path('guides/2', home_view.guide_2, name='guide2'),
     path('register/', users_view.register, name='register'),
-    path('login/', users_view.login, name='login'),
+    path('login/', auth_view.LoginView.as_view(template_name='login_page.html'), name='login'),
     path('', home_view.index, name='index'),
 ]
