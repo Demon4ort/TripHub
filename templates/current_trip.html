@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TripHub</title>
+    <link href="{% static 'css/bootstrap-4.0.0.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg text-info" style="background-color: #A0F4F4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <div class="container">
+            <img class="mr-3" src="{% static 'images/logo.jpg' %}" style="height: 100px">
+            <h1 class="navbar-brand">TripHub</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'guides_page' %}">Guides</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'trips_page' %}">Trips</a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="{% url 'login_page' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <br>
+        <div class="col-lg-12">
+            <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Trip name</span>&nbsp;</h2>
+            <br>
+        </div>
+        <h3><span class="badge-lg badge-info badge-pill">Information about the author</span></h3>
+        <div class="row">
+            <div class="col-5">
+                <h5>Name: <a id="author_name">@name@</a></h5>
+                <h5>Rating: <a id="author_rating">@rating@</a>/10</h5>
+                <h5>Facebook: <a id="facebook_link" href="#"><a id="author_name">@name@</a></a>
+                </h5>
+                <h5>Age: <a id="age">@age@</a></h5>
+                <h5>Gender: <a id="gender">@male/female@</a></h5>
+                <br>
+                <br>
+                <a href="#" class="btn badge-lg badge-info  badge-pill">Go to profile</a>
+            </div>
+            <div class="col-3 col-xl-1 offset-xl-4">
+                <img src="{% static 'images/maestro.jpeg' %}" style="height: 250px; width: 250px">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h3><span class="badge-lg badge-info badge-pill">Information about the trip</span></h3>
+        <h5>Destination of the trip: <a id="destination" href="#">@destination@</a></h5>
+        <h5>Level of difficulty: <a id="level">@level@</a></h5>
+        <h5>Description of the trip: <a id="description">@description@</a></h5>
+        <h5>Requirements for participants: <a id="requirements">@requirements@</a></h5>
+        <br>
+        <h1 class="text-center"><button class="btn badge badge-info badge-pill" style="color: #A0F4F4">Apply for the trip</button></h1>
+        <br>
+        <br>
+        <h3><span class="badge-lg badge-info badge-pill">Information about participants</span></h3>
+        <br>
+        <h5>Number of participants: <a id="currentNumber">@current@</a>/<a id="maxNumber">@maxNumber@</a></h5>
+        <br>
+        <div class="container text-white" id="trip_card">
+            <div class="card bg-info">
+                <div class="card-header">
+                    <h2><span class="badge badge-pill" style="background-color: #A0F4F4">@name@</span></h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-5">
+                            <p class="card-text">
+                                <h5>Name: <a id="part_name">@name@</a></h5>
+                                <h5>Rating: <a id="part_rating">@rating@</a>/10</h5>
+                                <h5>Facebook: <a id="part_facebook" href="#"><a id="part_name">@name@</a></a>
+                                </h5>
+                                <h5>Age: <a id="part_age">@age@</a></h5>
+                                <h5>Gender: <a id="part_gender">@male/female@</a></h5>
+                            </p>
+                        </div>
+                        <div class="col-3 offset-xl-3 col-xl-3">
+                            <img src="{% static 'images/kobzar.jpg' %}" class="" style="height: 250px; width:250px">
+                        </div>
+                    </div>
+                    <a href="{% url 'current_trip' %}" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Go to the profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-12">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+    <div class="container-fluid text-white bg-info">
+        <div class="col-lg-12">
+            <address>
+            <strong>Mohila products, inc.</strong><br>
+            Ukraine 2021 <br>
+            Develoved by: <span class="badge badge-pill" style="background-color: #A0F4F4">Yehor Podolskyi</span> <span class="badge badge-pill" style="background-color: #A0F4F4"> Pavlo Vilkhoviy</span> <span class="badge badge-pill" style="background-color: #A0F4F4">Daniel Demchina</span><br>
+			  Designed by:<span class="badge badge-pill" style="background-color: #A0F4F4"> Yehor Podolskyi</span>
+          </address>
+            <address>
+            <strong>Contact us:</strong><br>
+            <a href="mailto:yehor.podolsky@gmail.com">yehor.podolsky@gmail.com</a>
+          </address>
+        </div>
+        <footer class="text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p>Copyright © TripHub. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.0.0.js' %}"></script>
+</body>
+
+</html>
