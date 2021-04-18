@@ -19,6 +19,7 @@ from . import views as home_view
 from users import views as users_view
 
 urlpatterns = [
+    path('', home_view.index, name='index'),
     path('admin/', admin.site.urls),
     path('trips/', include('trips.urls')),
     path('guides_page/', home_view.guide, name='guides'),
