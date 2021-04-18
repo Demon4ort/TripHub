@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TripHub</title>
+	<link href="css/css_map.css" rel="stylesheet">
+	<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+	<script src="js/map.js"></script>
+  </head>
+ <body class="bg text-info" style="background-color: #A0F4F4">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+      <div class="container">
+		  <img class="mr-3" src="images/logo.jpg" style="height: 100px">
+        <h1 class="navbar-brand" href="#">TripHub</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="guides_page.html">Guides</a>
+				<div class="dropdown-divider"></div> 
+                <a class="dropdown-item" href="trips_page.html">Trips</a>
+            </li>
+         </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a href="login_page.html" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+          </form>
+        </div>
+      </div>
+    </nav>
+	<div class="col-lg-12"> <br/>
+		   <br/>
+		   <br/>
+		   <hr>
+		    <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Creat your own trip</span></h2>
+		   <hr>
+		   <br/>
+		   <br/>
+	 </div> 
+	 <div class="container">
+		 <form class="form" role="form">
+			 <div class="form-group">
+			  <label for="name" class="col control-label">Enter name for your trip</label>
+                    <div class="col"><input type="text" id="tripName" placeholder="Name" class="form-control" autofocus></div>
+			 </div>
+			 <div class="form-group">
+			        <label for="name" class="col control-label">Enter destination</label>
+                    <div class="col"><input type="text" id="destination" placeholder="Destination" class="form-control" autofocus></div>
+			 </div>
+			 <div class="form-group">
+			        <label for="name" class="col control-label">Enter link to the spot on Google Maps</label>
+                    <div class="col"><input type="text" id="google_link" placeholder="Google Maps link" class="form-control" autofocus></div>
+			 </div>
+             <div class="form-group">
+              	<label for="name" class="col control-label">Enter description</label>
+    			<div class="col"><textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Description"></textarea></div>
+  			 </div>
+			 <div class="form-group">
+              	<label for="name" class="col control-label">Enter requirements for companions</label>
+    			<div class="col"><textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Requirements"></textarea></div>
+  			 </div>
+			 <div class="form-group">
+              	<label for="name" class="col control-label">Choose level of difficulty</label>
+    			<div class="col">
+				 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                 	<option selected value="0">Choose...</option>
+                 	<option value="1">Very easy</option>
+                 	<option value="2">Easy</option>
+                 	<option value="3">Medium</option>
+					<option value="4">Hard</option>
+					<option value="5">Very hard</option>
+                 </select>
+				 
+				 </div>
+  			 </div>
+			 
+			
+		 
+		 
+		 
+		 
+		 
+		 <button type="submit" class="btn badge-lg badge-info badge-pill">Submit</button>
+		 </form> 
+	 
+	 
+	 
+	 
+	 
+	 
+	 </div>
+  	<div class="col-lg-12"> <br/>
+		   <br/>
+		   <br/>
+		   <br/>
+		   <br/></div>
+      <div class="container-fluid text-white bg-info">
+          <div class="col-lg-12">
+          <address>
+            <strong>Mohila products, inc.</strong><br>
+            Ukraine 2021 <br>
+            Develoved by: <span class="badge badge-pill" style="background-color: #A0F4F4">Yehor Podolskyi</span> <span class="badge badge-pill" style="background-color: #A0F4F4"> Pavlo Vilkhoviy</span> <span class="badge badge-pill" style="background-color: #A0F4F4">Daniel Demchina</span><br>
+			  Designed by:<span class="badge badge-pill" style="background-color: #A0F4F4"> Yehor Podolskyi</span>
+          </address>
+          <address>
+            <strong>Contact us:</strong><br>
+            <a href="mailto:yehor.podolsky@gmail.com">yehor.podolsky@gmail.com</a>
+          </address>
+        </div>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright © TripHub. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </div>
+ <script src="js/jquery-3.2.1.min.js"></script>
+
+	<script src="js/popper.min.js"></script> 
+	<script src="js/bootstrap-4.0.0.js"></script>
+  </body>
+</html>
