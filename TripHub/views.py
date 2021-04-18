@@ -5,5 +5,5 @@ def index(request):
     return render(request, 'index.html')
 
 
-def guide():
-    return
+def guide(request):
+    return render(request, 'guides_page.html')

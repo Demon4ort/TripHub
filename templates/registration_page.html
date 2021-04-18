@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TripHub</title>
-
-    
-    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-4.0.0.css' %}" rel="stylesheet">
 
   </head>
   <body class="bg text-info" style="background-color: #A0F4F4">
@@ -30,49 +29,30 @@
                 <a class="dropdown-item" href="guides_page.html">Guides</a>
 				<div class="dropdown-divider"></div> 
                 <a class="dropdown-item" href="trips_page.html">Trips</a>
+              </div>
             </li>
          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="login_page.html" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
-          </form>
         </div>
       </div>
     </nav>
-       <br>
-       <hr>
-	  <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Our guides</span></h2>
-    	<hr>
-       <br>
-       <div class="row">
-          <div class="col-12">
-             <div class="card bg-info" style="color: #A0F4F4">
-                <div class="card-body">
-					<img src="images/camping_guide.jpg" style="float: right; width: 250px">
-                   <h4 class="card-title text-white">How to camp</h4>
-					<h6 class="card-subtitle">Guied for complete beginners</h6>
-					<br>
-					<br>
-                   <p class="card-text">Camping is an outdoor activity that involves staying the night/more than one night in a protective shelter out in nature. Camping is a broad term but in its essence, camping is a way of getting away from the hassle of urban life, to a more natural environment for a limited time. Recreational camping started in the late 19th century and became one of the most common outdoor activities all around the world. </p>
-					<br>
-					<br>
-                   <a href="guide1_page.html" class="btn btn-info" style="background-color: #A0F4F4">Learn more</a>
-                </div>
-             </div>
-          </div>
-		  <div class="col-lg-12"> <br/></div>
-          <div class="col-lg-12">
-             <div class="card bg-info">
-                <div class="card-body" style="color: #A0F4F4">
-					<img src="images/camping.jpg" style="float: right; width: 250px">
-                   <h4 class="card-title text-white">Best Locations for Camping in the World</h4>
-                   <p class="card-text">If you want to go hiking abroad, this guide will help you choose a place to hike, as well as tell you about the specifics of each country.</p>
-                   <br><br><br><br>
-                   <a href="guide2_page.html" class="btn btn-info" style="background-color: #A0F4F4">Learn more</a>
-                </div>
-             </div>
+	  <br>
+	  <br>
+	  
+	  <div class="container text-center"><div class="row justify-content-center">
+            <form class="form" role="form" method="post">
+                {% csrf_token %}
+				<h2 ><span class="badge-lg badge-info badge-pill">Registration</span></h2>
+                 {{ form.as_ul }}
+                <button type="submit" class="btn btn-info btn-block">Register</button>
+				<a class="badge badge-info badge-pill" href="login_page.html">Already have an account?</a>
+            </form> <!-- /form -->
+		  
+		  
 		  </div>
-		  <div class="col-lg-12"> <br/></div>
-		<div class="col-lg-12"> <br/>
+	  </div>
+
+           
+   <div class="col-lg-12"> <br/>
 		   <br/>
 		   <br/>
 		   <br/>
@@ -101,6 +81,7 @@
       </div>
     </footer>
     </div>
+	<script src="js/validation_registration.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap-4.0.0.js"></script>
