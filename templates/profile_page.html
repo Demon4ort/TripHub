@@ -11,46 +11,41 @@
 </head>
 
 <body class="bg text-info" style="background-color: #A0F4F4">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-        <div class="container">
-            <img class="mr-3" src="{% static 'images/logo.jpg' %}" style="height: 100px">
-            <h1 class="navbar-brand" href="#">TripHub</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+        <img class="mr-3" src="{% static 'images/logo.jpg' %}" style="height: 100px">
+        <h1 class="navbar-brand" href="#">TripHub</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
-                        </div>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
-                </form>
-            </div>
+            </ul>
+
+            <form class="form-inline my-2 my-lg-0">
+                <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
+            </form>
+
         </div>
-    </nav>
+    </div>
+</nav>
     <div class="container">
         <br>
         <div class="col-lg-12">
             <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Profile</span>&nbsp;</h2>
             <br>
         </div>
-        <h5>First name: <a id="firstName">@firstName@</a></h5>
-        <h5>Last name: <a id="lastName">@lastName@</a></h5>
-        <h5>Facebook: <a id="facebook_link" href="#"><a id="name">@name@</a></a>
+        <h5>Username: <a id="lastName">{{ user.username }}</a></h5>
+        <h5>First name: <a id="firstName">{{ user.profile.first_name }}</a></h5>
+        <h5>Last name: <a id="lastName">{{user.profile.second_name}}</a></h5>
+        <h5>Facebook: <a id="facebook_link" href="{{ user.profile.facebook }}"><a id="name">@name@</a></a>
         </h5>
-        <h5>Age: <a id="age">@age@</a></h5>
-        <h5>Gender: <a id="gender">@male/female@</a></h5>
+        <h5>Date of birth: <a id="age">{{ user.profile.date_of_birth }}</a></h5>
+        <h5>Gender: <a id="gender">{{ user.profile.gender }}</a></h5>
         <br>
         <hr>
         <br>
@@ -59,20 +54,21 @@
             <br>
         </div>
         <div class="container text-white">
-            {% for trip in trips %}
+{#            {% for participation in user.participation %}#}
             <div class="card bg-info">
                 <div class="card-header">
-                    <h2><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ trip.name_tr}}</span></h2>
+                    <h2><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.trip.name_tr}}</span></h2>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ trip.author.username }}</span></h5>
-                    <p class="card-text">{{ trip.description }}
+                    <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.trip.author.username }}</span></h5>
+                    <p class="card-text">{{ participation.trip.description }}
                     </p>
-                    <a href="{% url 'current_trip' %}" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
+                    <a href="#" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
                 </div>
 
             </div>
-            <hr> {% endfor %}
+            <hr>
+{#            {% endfor %}#}
         </div>
 
     </div>

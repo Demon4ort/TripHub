@@ -26,6 +26,8 @@ urlpatterns = [
     path('guides/1', home_view.guide_1, name='guide1'),
     path('guides/2', home_view.guide_2, name='guide2'),
     path('register/', users_view.register, name='register'),
+    path('profile/', users_view.profile, name='profile'),
     path('login/', auth_view.LoginView.as_view(template_name='login_page.html'), name='login'),
     path('', home_view.index, name='index'),
+    path('', users_view.log_out, name='logout'),
 ]

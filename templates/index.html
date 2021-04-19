@@ -34,16 +34,26 @@
                         </div>
                     </li>
                 </ul>
+                {% if user.is_authenticated %}
+                    <form class="form-inline my-2 my-lg-0">
+                        <a href="{% url 'logout' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
+                    </form>
+                    <form class="form-inline my-2 my-lg-0">
+                        <a href="{% url 'profile' %}" class="btn btn-info" style="background-color: #A0F4F4">Profile</a>
+                    </form>
+                {% else %}
                 <form class="form-inline my-2 my-lg-0">
                     <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
                 </form>
+                {% endif %}
+
                 </div>
             </div>
     </nav>
     {% if messages  %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
-            {{ message }}
+                {{ message }}
             </div>
         {% endfor %}
     {% endif %}

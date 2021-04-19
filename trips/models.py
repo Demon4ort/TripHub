@@ -29,10 +29,19 @@ class Participation(models.Model):
     applied_by = models.ForeignKey(User, related_name='participation', on_delete=models.CASCADE)
     applied_at = models.DateTimeField(auto_now_add=True)
 
-#
-# class Guide(models.Model):
-#     name_g = models.CharField(max_length=40, unique=True)
-#     # image_g = models.ImageField()
-#     text_g = models.TextField()
-#     created_by = models.ForeignKey(User, related_name='guides', on_delete=models.DO_NOTHING)
-#     created_at = models.DateTimeField(auto_now_add=True)
+
+GENDER_CHOICES = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    second_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    facebook = models.URLField()
+    date_of_birth = models.DateField()
+    phone = models.CharField(max_length=10)
+    gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
