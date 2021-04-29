@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_protect
 
 from .forms import UserForm
 from django.contrib.auth.models import User
-from trips.models import Profile
+from trips.models import Profile, Trip
 
 
 @csrf_protect
@@ -36,19 +36,16 @@ def register(request):
     return render(request, 'registration_page.html', {'form': form})
 
 
+@login_required
 def log_out(request):
-    if request.user.is_authenticated():
-        response = logout(request)
-        response.set_cookie('sessionid', max_age_seconds=1)
-        return response
-    else:
-        messages.add_message(request,
-                             messages.ERROR,
-                             "You can't log out if you aren't logged "
-                             "in first!")
-        return redirect('index')
+    logout(request)
+    return redirect('index')
 
 
 @login_required
 def profile(request):
-    return render(request, 'profile_page.html')
+    parts = Trip.objects.filter(author_id=request.user.pk)
+    context = {
+        'trips': parts
+    }
+    return render(request, 'profile_page.html', context)

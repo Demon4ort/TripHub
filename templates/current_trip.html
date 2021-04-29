@@ -34,7 +34,10 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="{% url 'login_page' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+                    <a href="{% url 'logout' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
+                </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="{% url 'profile' %}" class="btn btn-info" style="background-color: #A0F4F4">Profile</a>
                 </form>
             </div>
         </div>
@@ -42,64 +45,57 @@
     <div class="container">
         <br>
         <div class="col-lg-12">
-            <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Trip name</span>&nbsp;</h2>
             <br>
         </div>
         <h3><span class="badge-lg badge-info badge-pill">Information about the author</span></h3>
         <div class="row">
             <div class="col-5">
-                <h5>Name: <a id="author_name">@name@</a></h5>
-                <h5>Rating: <a id="author_rating">@rating@</a>/10</h5>
-                <h5>Facebook: <a id="facebook_link" href="#"><a id="author_name">@name@</a></a>
+                <h5>Username: <a id="author_name">{{trip.author.username}}</a></h5>
+                <h5>Name: <a id="author_name">{{trip.author.first_name}}</a></h5>
+                <h5>Difficulty: <a id="author_rating">{{trip.difficulty_level}}</a>/10</h5>
+                <h5>Facebook: <a id="facebook_link" href="{{ trip.author.profile.facebook }}"><a id="author_name">link</a></a>
                 </h5>
-                <h5>Age: <a id="age">@age@</a></h5>
-                <h5>Gender: <a id="gender">@male/female@</a></h5>
+                <h5>Birth date <a id="age">{{trip.author.profile.date_of_birth}}</a></h5>
+                <h5>Gender: <a id="gender">{{trip.author.profile.gender}}</a></h5>
                 <br>
                 <br>
-                <a href="#" class="btn badge-lg badge-info  badge-pill">Go to profile</a>
-            </div>
-            <div class="col-3 col-xl-1 offset-xl-4">
-                <img src="{% static 'images/maestro.jpeg' %}" style="height: 250px; width: 250px">
             </div>
         </div>
         <br>
         <br>
         <br>
         <h3><span class="badge-lg badge-info badge-pill">Information about the trip</span></h3>
-        <h5>Destination of the trip: <a id="destination" href="#">@destination@</a></h5>
-        <h5>Level of difficulty: <a id="level">@level@</a></h5>
-        <h5>Description of the trip: <a id="description">@description@</a></h5>
-        <h5>Requirements for participants: <a id="requirements">@requirements@</a></h5>
+        <h5>Destination of the trip: <a id="destination" href="#">{{ trip.destination }}</a></h5>
+        <h5>Level of difficulty: <a id="level">{{trip.difficulty_level}}</a></h5>
+        <h5>Description of the trip: <a id="description">{{trip.description}}</a></h5>
+        <h5>Requirements for participants: <a id="requirements">{{trip.requirements}}</a></h5>
         <br>
-        <h1 class="text-center"><button class="btn badge badge-info badge-pill" style="color: #A0F4F4">Apply for the trip</button></h1>
+        <h1 class="text-center"><a class="badge badge-info badge-pill" style="color: #A0F4F4" href="{% url 'apply' trip.pk %}">Apply for the trip</a></h1>
         <br>
         <br>
         <h3><span class="badge-lg badge-info badge-pill">Information about participants</span></h3>
         <br>
-        <h5>Number of participants: <a id="currentNumber">@current@</a>/<a id="maxNumber">@maxNumber@</a></h5>
+        <h5>Number of participants: <a id="currentNumber">{{ number }}</a>/<a id="maxNumber">{{ trip.numberOfParticipants }}</a></h5>
         <br>
         <div class="container text-white" id="trip_card">
             <div class="card bg-info">
                 <div class="card-header">
-                    <h2><span class="badge badge-pill" style="background-color: #A0F4F4">@name@</span></h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        {% for part in parts %}
                         <div class="col-5">
                             <p class="card-text">
-                                <h5>Name: <a id="part_name">@name@</a></h5>
-                                <h5>Rating: <a id="part_rating">@rating@</a>/10</h5>
-                                <h5>Facebook: <a id="part_facebook" href="#"><a id="part_name">@name@</a></a>
+                                <h5>Name: <a id="part_name">{{ part.applied_by.profile.first_name }}</a></h5>
+                                <h5>Username: <a id="username">{{ part.applied_by.username }}</a></h5>
+                                <h5>Facebook: <a id="part_facebook" href="{{part.applied_by.profile.facebook}}"><a id="part_name">link</a></a>
                                 </h5>
-                                <h5>Age: <a id="part_age">@age@</a></h5>
-                                <h5>Gender: <a id="part_gender">@male/female@</a></h5>
+                                <h5>Birth date: <a id="part_age">{{part.applied_by.profile.date_of_birth}}</a></h5>
+                                <h5>Gender: <a id="part_gender">{{part.applied_by.profile.gender}}</a></h5>
                             </p>
                         </div>
-                        <div class="col-3 offset-xl-3 col-xl-3">
-                            <img src="{% static 'images/kobzar.jpg' %}" class="" style="height: 250px; width:250px">
-                        </div>
+                        {% endfor %}
                     </div>
-                    <a href="{% url 'current_trip' %}" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Go to the profile</a>
                 </div>
             </div>
         </div>

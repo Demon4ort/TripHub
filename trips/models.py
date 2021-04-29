@@ -3,21 +3,25 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+DIFFICULTY_LEVELS = (
+    ('VE', 'Very Easy'),
+    ('ES', 'Easy'),
+    ('ME', 'Medium'),
+    ('HR', 'Hard'),
+    ('VH', 'Very Hard'),
+)
+
 
 class Trip(models.Model):
-    name_tr = models.CharField(max_length=40, unique=True)
+    name_tr = models.CharField(max_length=100, unique=True)
     destination = models.CharField(max_length=30)
     description = models.TextField()
     requirements = models.TextField()
+    startDate = models.DateField(default='2021-07-21')
+    numberOfParticipants = models.IntegerField()
+    google_link = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, related_name='trips', on_delete=models.CASCADE)
-    DIFFICULTY_LEVELS = (
-        ('VE', 'Very Easy'),
-        ('ES', 'Easy'),
-        ('ME', 'Medium'),
-        ('HR', 'Hard'),
-        ('VH', 'Very Hard'),
-    )
     difficulty_level = models.CharField(max_length=30, choices=DIFFICULTY_LEVELS)
 
     def __str__(self):

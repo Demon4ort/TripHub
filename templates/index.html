@@ -28,9 +28,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
+                            {% if user.is_authenticated %}
+                                <a class="dropdown-item" href="{% url 'guides' %}">Guides</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'trips' %}">Trips</a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'login' %}">Guides</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'login' %}">Trips</a>
+                            {% endif %}
                         </div>
                     </li>
                 </ul>

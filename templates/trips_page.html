@@ -34,14 +34,17 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Login</a>
+                    <a href="{% url 'logout' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
+                </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="{% url 'profile' %}" class="btn btn-info" style="background-color: #A0F4F4">Profile</a>
                 </form>
             </div>
         </div>
     </nav>
     <br/>
     <div class="container" align="right">
-        <a href="trip_adder.html" class="btn badge-lg badge-info badge-pill"><span href="#" style="font-size: 23px; background-color: #A0F4F4" class="badge-lg text-info badge-pill">+</span> Add trip</a>
+        <a href="{% url 'add_trip' %}" class="btn badge-lg badge-info badge-pill"><span href="#" style="font-size: 23px; background-color: #A0F4F4" class="badge-lg text-info badge-pill">+</span> Add trip</a>
     </div>
     <br/>
     <div class="col-lg-12"> <br/>
@@ -60,7 +63,7 @@
                 <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ trip.author.username }}</span></h5>
                 <p class="card-text">{{ trip.description }}
                 </p>
-                <a href="#" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
+                <a href="{% url 'current_trip' trip.pk %}" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
             </div>
 
         </div>

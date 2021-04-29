@@ -27,7 +27,7 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0">
-                <a href="{% url 'login' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
+                <a href="{% url 'logout' %}" class="btn btn-info" style="background-color: #A0F4F4">Logout</a>
             </form>
 
         </div>
@@ -39,10 +39,9 @@
             <h2 class="text-center"><span class="badge-lg badge-info badge-pill">Profile</span>&nbsp;</h2>
             <br>
         </div>
-        <h5>Username: <a id="lastName">{{ user.username }}</a></h5>
         <h5>First name: <a id="firstName">{{ user.profile.first_name }}</a></h5>
         <h5>Last name: <a id="lastName">{{user.profile.second_name}}</a></h5>
-        <h5>Facebook: <a id="facebook_link" href="{{ user.profile.facebook }}"><a id="name">@name@</a></a>
+        <h5>Facebook: <a id="facebook_link" href="{{ user.profile.facebook }}">{{ user.username }}</a>
         </h5>
         <h5>Date of birth: <a id="age">{{ user.profile.date_of_birth }}</a></h5>
         <h5>Gender: <a id="gender">{{ user.profile.gender }}</a></h5>
@@ -54,21 +53,21 @@
             <br>
         </div>
         <div class="container text-white">
-{#            {% for participation in user.participation %}#}
+            {% for participation in trips %}
             <div class="card bg-info">
                 <div class="card-header">
-                    <h2><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.trip.name_tr}}</span></h2>
+                    <h2><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.name_tr}}</span></h2>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.trip.author.username }}</span></h5>
-                    <p class="card-text">{{ participation.trip.description }}
+                    <h5 class="card-title"><span class="badge badge-pill text-info" style="background-color: #A0F4F4">{{ participation.startDate }}</span></h5>
+                    <p class="card-text">{{ participation.description }}
                     </p>
                     <a href="#" class="btn badge-lg badge-info text-info badge-pill" style="background-color: #A0F4F4">Learn more</a>
                 </div>
 
             </div>
             <hr>
-{#            {% endfor %}#}
+            {% endfor %}
         </div>
 
     </div>
